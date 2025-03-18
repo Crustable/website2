@@ -8,12 +8,20 @@ import { categories } from "@/data/categories";
 import { articles } from "@/data/articles";
 import { Category, Article } from "@/types";
 import { unslugify } from "@/lib/utils";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const [category, setCategory] = useState<Category | null>(null);
   const [categoryArticles, setCategoryArticles] = useState<Article[]>([]);
   const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
+  const [isFeaturedOpen, setIsFeaturedOpen] = useState(true);
 
   useEffect(() => {
     // Find the category
@@ -66,8 +74,38 @@ export default function CategoryPage() {
           <p className="text-gray-600 max-w-2xl">{category.description}</p>
         </header>
         
-        {/* Featured Article */}
-        {featuredArticle && <FeaturedArticle article={featuredArticle} />}
+        {/* Collapsible Featured Article */}
+        {featuredArticle && (
+          <div className="mb-8">
+            <Collapsible
+              open={isFeaturedOpen}
+              onOpenChange={setIsFeaturedOpen}
+              className="bg-white rounded-lg shadow-sm overflow-hidden"
+            >
+              <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                <h2 className="text-xl font-semibold">Featured Article</h2>
+                <CollapsibleTrigger asChild>
+                  <Button variant="ghost" size="sm" className="px-2 h-8 hover:bg-gray-100">
+                    {isFeaturedOpen ? (
+                      <span className="flex items-center text-gray-600">
+                        <ChevronUpIcon className="h-4 w-4 mr-1" />
+                        <span className="text-sm">Hide</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center text-gray-600">
+                        <ChevronDownIcon className="h-4 w-4 mr-1" />
+                        <span className="text-sm">Show</span>
+                      </span>
+                    )}
+                  </Button>
+                </CollapsibleTrigger>
+              </div>
+              <CollapsibleContent>
+                <FeaturedArticle article={featuredArticle} />
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+        )}
         
         {/* Articles Grid */}
         <ArticlesList 
