@@ -21,7 +21,7 @@ export default function MainLayout({ children, currentTopic }: MainLayoutProps) 
   // Close mobile menu when screen size becomes larger
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 992) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -45,10 +45,10 @@ export default function MainLayout({ children, currentTopic }: MainLayoutProps) 
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Header toggleMobileMenu={toggleMobileMenu} />
       
-      <div className="container mx-auto px-4 flex flex-col md:flex-row flex-1">
+      <div className="flex flex-1">
         <Sidebar 
           isOpen={isMobileMenuOpen} 
           currentTopic={currentTopic} 
@@ -58,13 +58,15 @@ export default function MainLayout({ children, currentTopic }: MainLayoutProps) 
         {/* Overlay for mobile menu */}
         {isMobileMenuOpen && (
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden" 
+            className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden" 
             onClick={closeMobileMenu}
           />
         )}
         
-        <main className="flex-1 py-8">
-          {children}
+        <main className="flex-1 min-w-0 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {children}
+          </div>
         </main>
       </div>
       
