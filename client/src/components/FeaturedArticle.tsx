@@ -10,64 +10,71 @@ export default function FeaturedArticle({ article }: FeaturedArticleProps) {
   const { slug, title, excerpt, category, coverImage, updatedAt, author } = article;
 
   const categoryColorClasses = {
-    audio: "bg-blue-100 text-primary",
+    audio: "bg-blue-100 text-blue-700",
     lighting: "bg-yellow-100 text-yellow-800",
     video: "bg-red-100 text-red-800",
     graphics: "bg-green-100 text-green-800"
   };
 
-  const colorClass = categoryColorClasses[category.slug as keyof typeof categoryColorClasses] || "bg-blue-100 text-primary";
+  const colorClass = categoryColorClasses[category.slug as keyof typeof categoryColorClasses] || "bg-blue-100 text-blue-700";
 
   return (
     <div className="mb-10">
-      <h2 className="text-xl font-semibold mb-4">Featured Article</h2>
-      <Link 
-        href={`/article/${slug}`} 
-        className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
-      >
-        <div className="md:flex">
-          <div className="md:flex-shrink-0">
-            <div className="h-48 w-full md:w-48 bg-gray-200 flex items-center justify-center">
-              {coverImage ? (
-                <img 
-                  src={coverImage} 
-                  alt={title}
-                  className="h-48 w-full object-cover md:w-48"
-                />
-              ) : (
-                <i className={`fas ${category.icon} text-5xl text-gray-400`}></i>
-              )}
-            </div>
+      <h2 className="text-xl font-semibold mb-6 text-gray-900">Featured Article</h2>
+      <div className="bg-white shadow-sm rounded-lg overflow-hidden">
+        {coverImage && (
+          <div className="relative h-64 w-full bg-gray-100">
+            <img 
+              src={coverImage} 
+              alt={title}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
-          <div className="p-6">
-            <div className="flex items-center">
-              <span className={`inline-block ${colorClass} text-xs px-2 py-1 rounded-full uppercase tracking-wide font-semibold`}>
-                {category.name}
-              </span>
-              <span className="ml-2 text-xs text-gray-500">Updated {formatDate(updatedAt)}</span>
-            </div>
-            <h3 className="mt-2 text-xl font-semibold text-neutral">{title}</h3>
-            <p className="mt-3 text-gray-500">{excerpt}</p>
-            {author && (
-              <div className="mt-4 flex items-center">
-                <div className="flex-shrink-0">
-                  <span className="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-200">
-                    {author.avatar ? (
-                      <img src={author.avatar} alt={author.name} className="h-10 w-10 object-cover" />
-                    ) : (
-                      <i className="fas fa-user-circle text-3xl text-gray-400 flex justify-center items-center h-full"></i>
-                    )}
-                  </span>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-neutral">{author.name}</p>
-                  <p className="text-xs text-gray-500">{author.title}</p>
-                </div>
+        )}
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <span className={`inline-block ${colorClass} text-xs px-2 py-1 rounded-full uppercase tracking-wide font-semibold`}>
+              {category.name}
+            </span>
+            <span className="ml-2 text-xs text-gray-500">Updated {formatDate(updatedAt)}</span>
+          </div>
+          
+          <Link href={`/article/${slug}`}>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-700 transition-colors">{title}</h3>
+          </Link>
+          
+          <p className="text-gray-600 mb-5">{excerpt}</p>
+          
+          {author && (
+            <div className="flex items-center pt-4 border-t border-gray-100">
+              <div className="flex-shrink-0">
+                <span className="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-200">
+                  {author.avatar ? (
+                    <img src={author.avatar} alt={author.name} className="h-10 w-10 object-cover" />
+                  ) : (
+                    <i className="fas fa-user-circle text-3xl text-gray-400 flex justify-center items-center h-full"></i>
+                  )}
+                </span>
               </div>
-            )}
+              <div className="ml-3">
+                <p className="text-sm font-medium text-gray-900">{author.name}</p>
+                <p className="text-xs text-gray-500">{author.title}</p>
+              </div>
+            </div>
+          )}
+          
+          <div className="mt-6">
+            <Link 
+              href={`/article/${slug}`} 
+              className="inline-flex items-center text-sm font-medium text-blue-700 hover:text-blue-800"
+            >
+              Read article
+              <i className="fas fa-arrow-right ml-2"></i>
+            </Link>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }
