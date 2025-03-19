@@ -4,6 +4,7 @@ import MainLayout from "@/layouts/MainLayout";
 import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import FeaturedArticle from "@/components/FeaturedArticle";
 import ArticlesList from "@/components/ArticlesList";
+import CreateArticleForm from "@/components/CreateArticleForm";
 import { categories } from "@/data/categories";
 import { articles } from "@/data/articles";
 import { Category, Article } from "@/types";
@@ -14,7 +15,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon, PlusIcon } from "lucide-react";
 
 export default function CategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,6 +23,7 @@ export default function CategoryPage() {
   const [categoryArticles, setCategoryArticles] = useState<Article[]>([]);
   const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
   const [isFeaturedOpen, setIsFeaturedOpen] = useState(true);
+  const [createFormOpen, setCreateFormOpen] = useState(false);
 
   useEffect(() => {
     // Find the category
@@ -68,7 +70,7 @@ export default function CategoryPage() {
     <MainLayout currentTopic={category.slug}>
       <BreadcrumbNavigation items={breadcrumbItems} />
       
-      <div className="mb-10" id="category-view">
+      <div className="mb-16" id="category-view">
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-3">{category.name}</h1>
           <p className="text-gray-600 max-w-2xl">{category.description}</p>
@@ -113,6 +115,27 @@ export default function CategoryPage() {
           title={`All ${category.name} Articles`} 
           categorySlug={category.slug} 
         />
+        
+        {/* Create New Article Button */}
+        <div className="mt-10 text-center">
+          <Button 
+            onClick={() => setCreateFormOpen(true)}
+            size="lg"
+            className="gap-2"
+          >
+            <PlusIcon className="h-5 w-5" />
+            Create New Article
+          </Button>
+        </div>
+        
+        {/* Create Article Form Dialog */}
+        {category && (
+          <CreateArticleForm
+            open={createFormOpen}
+            setOpen={setCreateFormOpen}
+            category={category}
+          />
+        )}
       </div>
     </MainLayout>
   );
