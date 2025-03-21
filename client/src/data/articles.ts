@@ -1187,7 +1187,7 @@ export const articles: Article[] = [
     updatedAt: "2023-04-15T13:30:00Z",
     tags: ["graphics", "video", "lower thirds", "titles"],
     viewCount: 705
-  }
+  },
 {
     id: 15,
     title: "MXBus App Set-Up Guide",
