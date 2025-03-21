@@ -32,5 +32,5 @@ export default defineConfig({
     outDir: 'dist/public',
     emptyOutDir: true,
   },
-  base: '/website2/',  // Replace with your repo name
+  base: '/',  // Change this from '/website2/'
 });
