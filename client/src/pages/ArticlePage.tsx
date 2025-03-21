@@ -145,7 +145,7 @@ export default function ArticlePage() {
                       {/* Article content sections */}
                       <div id="overview">
                         <h2>Overview</h2>
-                        <div dangerouslySetInnerHTML={{ __html: article.content.substring(0, article.content.length) }} />
+                        <div dangerouslySetInnerHTML={{ __html: article.content.substring(0, article.content.length / 2) }} />
                       </div>
                       
                       <div id="setup">
