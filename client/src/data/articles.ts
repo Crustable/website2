@@ -1215,7 +1215,7 @@ export const articles: Article[] = [
     author: authors[4],
     createdAt: "2025-03-21T08:00:00Z",
     updatedAt: "2025-03-21T14:30:00Z",
-    tags: [none],
+    tags: ["none"],
     featured: true,
     viewCount: 720
   }
