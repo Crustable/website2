@@ -1258,7 +1258,7 @@ export const articles: Article[] = [
       </ul>
     `,
     category: audioCategory,
-    coverImage: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?auto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3",
+    coverImage: "https://www.keldenich.net/images/mxbus-mixer.pngauto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3",
     author: authors[0],
     createdAt: "2023-05-10T08:00:00Z",
     updatedAt: "2023-06-15T14:30:00Z",
