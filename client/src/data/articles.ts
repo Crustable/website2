@@ -1216,7 +1216,6 @@ export const articles: Article[] = [
     createdAt: "2025-03-21T08:00:00Z",
     updatedAt: "2025-03-21T14:30:00Z",
     featured: true,
-    tags: ["audio", "worship", "mixing", "console", "setup"],
     viewCount: 720
   }
 ];
