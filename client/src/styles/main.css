@@ -1,0 +1,14 @@
+/* Add these styles to your CSS file */
+@media (max-width: 1024px) {
+  .sidebar-overlay {
+    display: none;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+  }
+}
