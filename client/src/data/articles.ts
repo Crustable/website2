@@ -1200,13 +1200,11 @@ export const articles: Article[] = [
     excerpt: "Learn how to properly Download and Install the MXBus App",
     content: `
       <h2>Download / Install</h2>
-      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/">Click Here To Download From The App Store</a></p>
+      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/">
+      Click Here To Download From The App Store</a></p>
       <button onclick="window.location.href='https://apps.apple.com/us/app/mxbus/id1530411157';" class="GFG">Download</button>
       
       <h3>1. Download from App Store (iOS Only)</h3>
-      <ButtonLink href="https://apps.apple.com/us/app/mxbus/id1530411157" newTab>
-        Visit Example Website
-      </ButtonLink>
       <p>Before making any adjustments, familiarize yourself with your specific audio console. Different models have different app associated with their software, but most share these common elements:</p>
       <ul>
         <li>Channel strips</li>
