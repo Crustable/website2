@@ -1201,6 +1201,9 @@ export const articles: Article[] = [
     content: `
       <h2>Download / Install</h2>
       <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/"> Click Here To Download From The App Store </a></p>
+      <br>
+      <br>
+      <br>
       <p>Before making any adjustments, familiarize yourself with your specific audio console. Different models have different app associated with their software, but most share these common elements:</p>
       <ul>
         <li>Channel strips</li>
@@ -1211,7 +1214,7 @@ export const articles: Article[] = [
     `,
     category: audioCategory,
     coverImage: "https://www.keldenich.net/images/mxbus-mixer",
-    author: authors[5],
+    author: authors[4],
     createdAt: "2025-03-21T08:00:00Z",
     updatedAt: "2025-03-21T14:30:00Z",
     featured: true,
