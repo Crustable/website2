@@ -26,7 +26,12 @@ const authors = [
     id: 4,
     name: "Emily Chen",
     title: "Graphics Designer",
-  }
+  },
+  {
+      id: 5,
+      name: "Dustin Conine",
+      title: "AV Engineer",
+    }
 ];
 
 export const articles: Article[] = [
@@ -103,7 +108,7 @@ export const articles: Article[] = [
     author: authors[0],
     createdAt: "2023-05-10T08:00:00Z",
     updatedAt: "2023-06-15T14:30:00Z",
-    featured: true,
+    featured: false,
     tags: ["audio", "worship", "mixing", "console", "setup"],
     viewCount: 1250
   },
@@ -1195,13 +1200,16 @@ export const articles: Article[] = [
     excerpt: "Learn how to properly Download and Install the MXBus App",
     content: `
       <h2>Download / Install</h2>
-      <p>click <a href="https://apps.apple.com/us/app/mxbus/id1530411157/">here</a> to download from the app store.</p>
-      <p ng-repeat="App Store">Visit <a href="site.url">{{AppStore.name}}</a></p>
+      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/">Click Here To Download From The App Store</a> to download from the app store.</p>
+      <p ng-repeat="siteList">Visit <a href="site.url">{{site.name}}</a></p>
         this.siteList= [
             { name: "AppStore", url: "https://apps.apple.com/us/app/mxbus/id1530411157" }
         ];
       
       <h3>1. Download from App Store (iOS Only)</h3>
+      <ButtonLink href="https://apps.apple.com/us/app/mxbus/id1530411157" newTab>
+        Visit Example Website
+      </ButtonLink>
       <p>Before making any adjustments, familiarize yourself with your specific audio console. Different models have different app associated with their software, but most share these common elements:</p>
       <ul>
         <li>Channel strips</li>
@@ -1209,61 +1217,14 @@ export const articles: Article[] = [
         <li>Faders</li>
         <li>Master section</li>
       </ul>
-      
-      <h3>2. Gain Staging</h3>
-      <p>Proper gain staging is the foundation of a good mix. Start by setting appropriate input levels:</p>
-      <ul>
-        <li>Begin with all faders down and gain controls at minimum</li>
-        <li>Have musicians play at their typical volume</li>
-        <li>Adjust the gain/trim for each channel until the meter shows peaks around -18dB to -12dB</li>
-        <li>Avoid clipping (indicated by red lights)</li>
-      </ul>
-      
-      <h3>3. EQ Settings</h3>
-      <p>Equalization helps each instrument and vocal sit properly in the mix:</p>
-      <ul>
-        <li>Start with flat EQ (no boosts or cuts)</li>
-        <li>Cut problematic frequencies rather than boosting good ones</li>
-        <li>Use high-pass filters on most channels (except bass and kick drum)</li>
-        <li>Make small adjustments and listen for changes</li>
-      </ul>
-      
-      <h3>4. Monitor Mixes</h3>
-      <p>Creating good monitor mixes helps musicians perform their best:</p>
-      <ul>
-        <li>Use pre-fader auxiliary sends for monitor mixes</li>
-        <li>Start with vocals in every mix</li>
-        <li>Add each musician's instrument prominently in their own mix</li>
-        <li>Communicate with the worship team to adjust as needed</li>
-      </ul>
-      
-      <h3>5. Creating a House Mix</h3>
-      <p>After setting up individual channels and monitors, focus on the main mix:</p>
-      <ul>
-        <li>Start with vocals and build around them</li>
-        <li>Balance instruments by their frequency range and role</li>
-        <li>Use compression on dynamic sources</li>
-        <li>Apply effects like reverb sparingly</li>
-        <li>Regularly walk the room to check coverage</li>
-      </ul>
-      
-      <h3>Best Practices</h3>
-      <p>Follow these guidelines for consistent results:</p>
-      <ul>
-        <li>Create and maintain a channel list</li>
-        <li>Label channels clearly</li>
-        <li>Save scene presets when possible</li>
-        <li>Document successful settings</li>
-        <li>Arrive early for proper setup time</li>
-      </ul>
     `,
     category: audioCategory,
     coverImage: "https://www.keldenich.net/images/mxbus-mixer.pngauto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3",
-    author: authors[0],
-    createdAt: "2023-05-10T08:00:00Z",
-    updatedAt: "2023-06-15T14:30:00Z",
+    author: authors[5],
+    createdAt: "2025-03-21T08:00:00Z",
+    updatedAt: "2025-03-21T14:30:00Z",
     featured: true,
     tags: ["audio", "worship", "mixing", "console", "setup"],
-    viewCount: 1250
+    viewCount: 720
   }
 ];
