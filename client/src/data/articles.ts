@@ -1200,11 +1200,8 @@ export const articles: Article[] = [
     excerpt: "Learn how to properly Download and Install the MXBus App",
     content: `
       <h2>Download / Install</h2>
-      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/">Click Here To Download From The App Store</a> to download from the app store.</p>
-      <p ng-repeat="siteList">Visit <a href="site.url">{{site.name}}</a></p>
-        this.siteList= [
-            { name: "AppStore", url: "https://apps.apple.com/us/app/mxbus/id1530411157" }
-        ];
+      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/">Click Here To Download From The App Store</a></p>
+      <button onclick="window.location.href='https://apps.apple.com/us/app/mxbus/id1530411157';" class="GFG">Download</button>
       
       <h3>1. Download from App Store (iOS Only)</h3>
       <ButtonLink href="https://apps.apple.com/us/app/mxbus/id1530411157" newTab>
@@ -1219,7 +1216,7 @@ export const articles: Article[] = [
       </ul>
     `,
     category: audioCategory,
-    coverImage: "https://www.keldenich.net/images/mxbus-mixer.pngauto=format&fit=crop&q=80&w=2670&ixlib=rb-4.0.3",
+    coverImage: "https://www.keldenich.net/images/mxbus-mixer",
     author: authors[5],
     createdAt: "2025-03-21T08:00:00Z",
     updatedAt: "2025-03-21T14:30:00Z",
