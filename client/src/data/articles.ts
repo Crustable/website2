@@ -1195,10 +1195,10 @@ export const articles: Article[] = [
     excerpt: "Learn how to properly Download and Install the MXBus App",
     content: `
       <h2>Download / Install</h2>
-      <p ng-repeat="site in siteList">Visit <a href="site.url">{{site.name}}</a></p>
+      <p>click <a href="https://apps.apple.com/us/app/mxbus/id1530411157/">here</a> to download from the app store.</p>
+      <p ng-repeat="App Store">Visit <a href="site.url">{{AppStore.name}}</a></p>
         this.siteList= [
-            { name: "App Store", url: "https://apps.apple.com/us/app/mxbus/id1530411157" },
-            { name: "StackOverflow", url: "http://www.stackoverflow.com" }
+            { name: "AppStore", url: "https://apps.apple.com/us/app/mxbus/id1530411157" }
         ];
       
       <h3>1. Download from App Store (iOS Only)</h3>
