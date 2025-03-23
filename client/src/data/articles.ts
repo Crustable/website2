@@ -1200,14 +1200,14 @@ export const articles: Article[] = [
     excerpt: "Learn how to properly Download and Install the MXBus App",
     content: `
       <h2>Download / Install</h2>
-      <p><a href="https://apps.apple.com/us/app/mxbus/id1530411157/"> Click Here To Download From The App Store </a></p>
-      
-      <p>Before making any adjustments, familiarize yourself with your specific audio console. Different models have different app associated with their software, but most share these common elements:
-      <ul>
-        <li>Channel strips</li>
-        <li>Equalization (EQ) sections</li>
-        <li>Faders</li>
-        <li>Master section</li>
+      <p>
+      <a href="https://apps.apple.com/us/app/mxbus/id1530411157/"> Click Here To Download From The App Store. </a>
+      </p> 
+      <p>-You will need to connect to the same wifi network as the Audio Mixer.<br>-You will need to ask for the Audio Mixer IP address in order to connect the app to the Mixer.</p></p>     
+      <p>
+        <li>Connected to the same WIFI</li>
+        <li>Audio Mixer IP Address</li>
+        <li>Select Manual connection and enter the IP address</li>
       </ul></p>
     `,
     category: audioCategory,
