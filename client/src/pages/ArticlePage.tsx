@@ -151,10 +151,10 @@ export default function ArticlePage() {
                       <div id="setup">
                         <h2>Setup Guide</h2>
 
-                        /* article.content: This refers to the full content of the article, which is typically a string containing the entire text of the article */
+                        {/* article.content: This refers to the full content of the article, which is typically a string containing the entire text of the article */
                         /* article.content.length / 3: This calculates one-third of the length of the article's content. It serves as the starting index for the substring extraction */
                         /* article.content.length * 2/3: This calculates two-thirds of the length of the article's content, serving as the ending index for the substring extraction */
-                        /* By using substring, the code retrieves the part of the article that is located between the first third and the second third of the total content */
+                        /* By using substring, the code retrieves the part of the article that is located between the first third and the second third of the total content */}
                         <div dangerouslySetInnerHTML={{ __html: article.content.substring(article.content.length / 3, article.content.length * 2/3) }} />
                       </div>
                       
