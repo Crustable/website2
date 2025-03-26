@@ -63,12 +63,14 @@ export default function MainLayout({ children, currentTopic }: MainLayoutProps) 
           />
         )}
         
-        <main className="flex-1 min-w-0 overflow-hidden">
+        <main className="flex-1 min-w-0 overflow-hidden lg:ml-64">
           {children}
         </main>
       </div>
       
-      <Footer />
+      <div className="lg:ml-64">
+        <Footer />
+      </div>
     </div>
   );
 }
