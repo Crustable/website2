@@ -68,74 +68,82 @@ export default function CategoryPage() {
 
   return (
     <MainLayout currentTopic={category.slug}>
-      <BreadcrumbNavigation items={breadcrumbItems} />
-      
-      <div className="mb-16" id="category-view">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-3">{category.name}</h1>
-          <p className="text-gray-600 max-w-2xl">{category.description}</p>
-        </header>
-        
-        {/* Collapsible Featured Article */}
-        {featuredArticle && (
-          <div className="mb-8">
-            <Collapsible
-              open={isFeaturedOpen}
-              onOpenChange={setIsFeaturedOpen}
-              className="bg-white rounded-lg shadow-sm overflow-hidden"
-            >
-              <div className="flex items-center justify-between p-4 border-b border-gray-100">
-                <h2 className="text-xl font-semibold">Featured Article</h2>
-                <CollapsibleTrigger asChild>
-                  <Button variant="ghost" size="sm" className="px-2 h-8 hover:bg-gray-100">
-                    {isFeaturedOpen ? (
-                      <span className="flex items-center text-gray-600">
-                        <ChevronUpIcon className="h-4 w-4 mr-1" />
-                        <span className="text-sm">Hide</span>
-                      </span>
-                    ) : (
-                      <span className="flex items-center text-gray-600">
-                        <ChevronDownIcon className="h-4 w-4 mr-1" />
-                        <span className="text-sm">Show</span>
-                      </span>
-                    )}
-                  </Button>
-                </CollapsibleTrigger>
-              </div>
-              <CollapsibleContent>
-                <FeaturedArticle article={featuredArticle} />
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
-        )}
-        
-        {/* Articles Grid */}
-        <ArticlesList 
-          articles={remainingArticles} 
-          title={`All ${category.name} Articles`} 
-          categorySlug={category.slug} 
-        />
-        
-        {/* Create New Article Button */}
-        <div className="mt-10 text-center">
-          <Button 
-            onClick={() => setCreateFormOpen(true)}
-            size="lg"
-            className="gap-2"
-          >
-            <PlusIcon className="h-5 w-5" />
-            Create New Article
-          </Button>
+      <div className="lg:pl-64 flex flex-col">
+        <div className="bg-white shadow-sm py-4 px-4 sm:px-6 lg:px-8 border-b">
+          <BreadcrumbNavigation items={breadcrumbItems} />
         </div>
         
-        {/* Create Article Form Dialog */}
-        {category && (
-          <CreateArticleForm
-            open={createFormOpen}
-            setOpen={setCreateFormOpen}
-            category={category}
-          />
-        )}
+        <div className="py-10">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="mb-16" id="category-view">
+              <header className="mb-8">
+                <h1 className="text-3xl font-bold mb-3">{category.name}</h1>
+                <p className="text-gray-600 max-w-2xl">{category.description}</p>
+              </header>
+              
+              {/* Collapsible Featured Article */}
+              {featuredArticle && (
+                <div className="mb-8">
+                  <Collapsible
+                    open={isFeaturedOpen}
+                    onOpenChange={setIsFeaturedOpen}
+                    className="bg-white rounded-lg shadow-sm overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between p-4 border-b border-gray-100">
+                      <h2 className="text-xl font-semibold">Featured Article</h2>
+                      <CollapsibleTrigger asChild>
+                        <Button variant="ghost" size="sm" className="px-2 h-8 hover:bg-gray-100">
+                          {isFeaturedOpen ? (
+                            <span className="flex items-center text-gray-600">
+                              <ChevronUpIcon className="h-4 w-4 mr-1" />
+                              <span className="text-sm">Hide</span>
+                            </span>
+                          ) : (
+                            <span className="flex items-center text-gray-600">
+                              <ChevronDownIcon className="h-4 w-4 mr-1" />
+                              <span className="text-sm">Show</span>
+                            </span>
+                          )}
+                        </Button>
+                      </CollapsibleTrigger>
+                    </div>
+                    <CollapsibleContent>
+                      <FeaturedArticle article={featuredArticle} />
+                    </CollapsibleContent>
+                  </Collapsible>
+                </div>
+              )}
+              
+              {/* Articles Grid */}
+              <ArticlesList 
+                articles={remainingArticles} 
+                title={`All ${category.name} Articles`} 
+                categorySlug={category.slug} 
+              />
+              
+              {/* Create New Article Button */}
+              <div className="mt-10 text-center">
+                <Button 
+                  onClick={() => setCreateFormOpen(true)}
+                  size="lg"
+                  className="gap-2"
+                >
+                  <PlusIcon className="h-5 w-5" />
+                  Create New Article
+                </Button>
+              </div>
+              
+              {/* Create Article Form Dialog */}
+              {category && (
+                <CreateArticleForm
+                  open={createFormOpen}
+                  setOpen={setCreateFormOpen}
+                  category={category}
+                />
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </MainLayout>
   );
