@@ -155,15 +155,32 @@ export default function ArticlePage() {
                         /* article.content.length / 3: This calculates one-third of the length of the article's content. It serves as the starting index for the substring extraction */
                         /* article.content.length * 2/3: This calculates two-thirds of the length of the article's content, serving as the ending index for the substring extraction */
                         /* By using substring, the code retrieves the part of the article that is located between the first third and the second third of the total content */}
-                        <div dangerouslySetInnerHTML={{ __html: article.content.substring(article.content.length / 3, article.content.length * 2/3) }} />
+                        {article.sections && article.sections.map((section) => (
+                          <div key={section.id} id={section.id} className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                            <div 
+                              className="prose max-w-none"
+                              dangerouslySetInnerHTML={{ __html: section.content }} 
+                            />
+                          </div>
+                        ))}
                       </div>
                       
-                      {article.tags && article.tags.map((tag, index) => (
-                        <div key={index} id={tag.toLowerCase().replace(/\s+/g, '-')}>
-                          <h2>{tag}</h2>
-                          <div dangerouslySetInnerHTML={{ __html: article.content.substring(article.content.length * 2/3) }} />
+                      {article.tags && (
+                        <div className="mt-8 pt-8 border-t">
+                          <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
+                          <div className="flex flex-wrap gap-2">
+                            {article.tags.map((tag, index) => (
+                              <span 
+                                key={index} 
+                                className="px-3 py-1 bg-gray-100 rounded-full text-sm"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      ))}
+                      )}
                     </div>
 
                     <div className="mt-8 pt-6 border-t border-gray-100">
