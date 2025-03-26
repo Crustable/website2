@@ -14,10 +14,11 @@ export function formatDate(date: string): string {
   return new Date(date).toLocaleDateString('en-US', options);
 }
 
-export function getReadTime(content: string): number {
+export function getReadTime(content: string | undefined): number {
+  if (!content) return 1;
   const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
+  const words = content.split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / wordsPerMinute));
 }
 
 export function slugify(text: string): string {
