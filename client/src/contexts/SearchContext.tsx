@@ -1,6 +1,6 @@
+
 import { createContext, useContext, useState, ReactNode } from "react";
 import { Article } from "@/types";
-import { articles } from "@/data/articles";
 
 interface SearchContextType {
   searchQuery: string;
@@ -21,7 +21,7 @@ export function SearchProvider({ children }: SearchProviderProps) {
   const [searchResults, setSearchResults] = useState<Article[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
-  const performSearch = (customQuery?: string) => {
+  const performSearch = async (customQuery?: string) => {
     const query = (customQuery || searchQuery).toLowerCase().trim();
     
     if (!query) {
@@ -31,21 +31,19 @@ export function SearchProvider({ children }: SearchProviderProps) {
 
     setIsSearching(true);
 
-    // Simulate a slight delay for search
-    setTimeout(() => {
-      const results = articles.filter(article => {
-        const titleMatch = article.title.toLowerCase().includes(query);
-        const contentMatch = article.content.toLowerCase().includes(query);
-        const excerptMatch = article.excerpt.toLowerCase().includes(query);
-        const categoryMatch = article.category.name.toLowerCase().includes(query);
-        const tagMatch = article.tags?.some(tag => tag.toLowerCase().includes(query)) || false;
-        
-        return titleMatch || contentMatch || excerptMatch || categoryMatch || tagMatch;
-      });
-
+    try {
+      const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+      if (!response.ok) {
+        throw new Error('Search failed');
+      }
+      const results = await response.json();
       setSearchResults(results);
+    } catch (error) {
+      console.error('Search error:', error);
+      setSearchResults([]);
+    } finally {
       setIsSearching(false);
-    }, 300);
+    }
   };
 
   return (
@@ -63,10 +61,10 @@ export function SearchProvider({ children }: SearchProviderProps) {
   );
 }
 
-export function useSearchContext() {
+export const useSearchContext = () => {
   const context = useContext(SearchContext);
   if (context === undefined) {
     throw new Error("useSearchContext must be used within a SearchProvider");
   }
   return context;
-}
+};
