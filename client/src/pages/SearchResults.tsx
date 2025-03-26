@@ -30,7 +30,7 @@ export default function SearchResults() {
 
   return (
     <MainLayout>
-      <div className="lg:pl-64 flex flex-col">
+      <div className="flex flex-col">
         <div className="bg-white shadow-sm py-4 px-4 sm:px-6 lg:px-8 border-b">
           <BreadcrumbNavigation items={breadcrumbItems} />
         </div>

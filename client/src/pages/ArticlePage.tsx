@@ -76,7 +76,7 @@ export default function ArticlePage() {
 
   return (
     <MainLayout currentTopic={article.category.slug}>
-      <div className="lg:pl-64 flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <div className="bg-white shadow-sm py-3 px-4 sm:px-6 lg:px-8 border-b sticky top-0 z-10">
           <BreadcrumbNavigation items={breadcrumbItems} />
         </div>

@@ -64,9 +64,7 @@ export default function MainLayout({ children, currentTopic }: MainLayoutProps) 
         )}
         
         <main className="flex-1 min-w-0 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {children}
-          </div>
+          {children}
         </main>
       </div>
       

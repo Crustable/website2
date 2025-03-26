@@ -4,7 +4,7 @@ import { categories } from "@/data/categories";
 export default function Footer() {
   return (
     <footer className="bg-neutral text-white py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:pl-64">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-bold text-lg mb-4">MinistryTech</h3>
