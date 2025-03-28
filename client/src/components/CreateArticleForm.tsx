@@ -55,7 +55,7 @@ export default function CreateArticleForm({ open, setOpen, category }: CreateArt
         id: newId,
         title,
         slug: newSlug,
-        content,
+        sections: [],
         excerpt: excerpt || content.substring(0, 150) + "...",
         category,
         createdAt: new Date().toISOString(),

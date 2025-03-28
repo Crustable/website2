@@ -5,7 +5,7 @@ import BreadcrumbNavigation from "@/components/BreadcrumbNavigation";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { articles } from "@/data/articles";
-import { Article } from "@/types";
+import { Article } from "@/types/index";
 import { formatDate, getReadTime } from "@/lib/utils";
 
 export default function ArticlePage() {
@@ -56,7 +56,7 @@ export default function ArticlePage() {
   };
 
   const colorClass = categoryColorClasses[article.category.slug as keyof typeof categoryColorClasses] || "bg-blue-100 text-blue-700 border-blue-200";
-  const readTime = getReadTime(article.content);
+  const readTime = getReadTime(article?.excerpt);
 
   // Create table of contents from headings (simulated based on tags)
   const tableOfContents = [
@@ -145,7 +145,7 @@ export default function ArticlePage() {
                       {/* Article summary */}
                       <div id="summary" className="mb-8">
                         <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                        <div dangerouslySetInnerHTML={{ __html: article.content }} />
+                        <div dangerouslySetInnerHTML={{ __html: article.excerpt}} />
                       </div>
                       
                       {/* Article sections */}
@@ -225,7 +225,7 @@ export default function ArticlePage() {
                             {relatedArticle.title}
                           </Link>
                           <span className="text-xs text-gray-500">
-                            {getReadTime(relatedArticle.content)} min read
+                            {getReadTime(relatedArticle.excerpt)} min read
                           </span>
                         </li>
                       ))}
