@@ -30,13 +30,13 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <div className="lg:pl-64 flex flex-col">
+      <div className="flex flex-col flex-1">
         <div className="bg-white shadow-sm py-4 px-4 sm:px-6 lg:px-8 border-b">
           <BreadcrumbNavigation items={breadcrumbItems} />
         </div>
-        
-        <div className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">
+
+        <div className="flex-1">
+          <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
             <div className="mb-10">
               <header className="max-w-3xl mb-8">
                 <h1 className="text-3xl font-bold mb-4 text-gray-900">MinistryTech Documentation</h1>

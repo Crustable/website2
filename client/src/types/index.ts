@@ -13,12 +13,19 @@ export interface Author {
   avatar?: string;
 }
 
+export interface ArticleSection {
+  id: string;
+  title: string;
+  content: string;
+  order: number;
+}
+
 export interface Article {
   id: number;
   title: string;
   slug: string;
   excerpt: string;
-  content: string;
+  sections: ArticleSection[];
   category: Category;
   coverImage?: string;
   author?: Author;

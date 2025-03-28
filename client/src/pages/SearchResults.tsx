@@ -30,28 +30,36 @@ export default function SearchResults() {
 
   return (
     <MainLayout>
-      <BreadcrumbNavigation items={breadcrumbItems} />
-      
-      <div className="mb-10">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold mb-3">Search Results</h1>
-          {searchQuery && (
-            <p className="text-gray-600">
-              {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'} found for "{searchQuery}"
-            </p>
-          )}
-        </header>
+      <div className="flex flex-col">
+        <div className="bg-white shadow-sm py-4 px-4 sm:px-6 lg:px-8 border-b">
+          <BreadcrumbNavigation items={breadcrumbItems} />
+        </div>
         
-        {isSearching ? (
-          <div className="flex justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+        <div className="py-10">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="mb-10">
+              <header className="mb-8">
+                <h1 className="text-3xl font-bold mb-3">Search Results</h1>
+                {searchQuery && (
+                  <p className="text-gray-600">
+                    {searchResults.length} {searchResults.length === 1 ? 'result' : 'results'} found for "{searchQuery}"
+                  </p>
+                )}
+              </header>
+              
+              {isSearching ? (
+                <div className="flex justify-center py-12">
+                  <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                </div>
+              ) : (
+                <ArticlesList 
+                  articles={searchResults} 
+                  title="Search Results" 
+                />
+              )}
+            </div>
           </div>
-        ) : (
-          <ArticlesList 
-            articles={searchResults} 
-            title="Search Results" 
-          />
-        )}
+        </div>
       </div>
     </MainLayout>
   );
