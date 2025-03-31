@@ -13,7 +13,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Article, Category } from "@/types";
+import { Article, Category, ArticleSection } from "@/types";
 import { articles } from "@/data/articles";
 import { slugify } from "@/lib/utils";
 
@@ -44,18 +44,26 @@ export default function CreateArticleForm({ open, setOpen, category }: CreateArt
     setIsSubmitting(true);
 
     try {
-      // In a real application, we would send data to the server
-      // But for this demo, we'll simulate adding a new article
+      // Create a new slug from the title
       const newSlug = slugify(title);
       
-      // This is just for demo purposes - in a real app this would come from the server
+      // Generate a new ID (in a real app this would come from the server)
       const newId = articles.length + 1;
       
+      // Create a section from the content
+      const mainSection: ArticleSection = {
+        id: "main-content",
+        title: "Main Content",
+        content: content,
+        order: 1
+      };
+      
+      // Create the new article object
       const newArticle: Article = {
         id: newId,
         title,
         slug: newSlug,
-        content,
+        sections: [mainSection],
         excerpt: excerpt || content.substring(0, 150) + "...",
         category,
         createdAt: new Date().toISOString(),
@@ -63,10 +71,10 @@ export default function CreateArticleForm({ open, setOpen, category }: CreateArt
         tags: tags.split(",").map(tag => tag.trim()).filter(tag => tag !== ""),
       };
 
-      // In a real app, we would add this to the database via an API call
-      console.log("New article created:", newArticle);
+      // Add the new article to the articles array
+      articles.push(newArticle);
       
-      // Close the dialog and redirect to the new article
+      // Close the dialog
       setOpen(false);
       
       // Reset the form
@@ -76,10 +84,8 @@ export default function CreateArticleForm({ open, setOpen, category }: CreateArt
       setTags("");
       setFile(null);
       
-      // Navigate to the category page
-      // In a real application, we would navigate to the new article
-      // after it's been saved to the database
-      navigate(`/category/${category.slug}`);
+      // Navigate to the new article page
+      navigate(`/article/${newSlug}`);
       
       // Show success message
       alert("Article created successfully!");

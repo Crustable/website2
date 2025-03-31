@@ -35,29 +35,29 @@ const graphicsCategory = {
 const authors: Author[] = [
   {
     id: 1,
-    name: "John Smith",
+    name: "Dustin Conine",
     title: "Audio Engineer"
   },
   {
     id: 2,
-    name: "Sarah Johnson",
+    name: "Dustin Conine",
     title: "Lighting Designer"
   },
   {
     id: 3,
-    name: "Michael Brown",
+    name: "Dustin Conine",
     title: "Video Director"
   }
   ,
   {
     id: 4,
-    name: "Emily Chen",
+    name: "Dustin Conine",
     title: "Graphics Designer",
   },
     {
       id: 5,
       name: "Dustin Conine",
-      title: "AV Engineer",
+      title: "Pathway Church",
     }
 ];
 
